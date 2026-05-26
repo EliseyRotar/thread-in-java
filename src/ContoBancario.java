@@ -8,19 +8,16 @@ public class ContoBancario {
 
     public synchronized void versa(double importo) {
         saldo += importo;
-        System.out.printf("[%s] Versamento: +%.2f€  -->  Saldo attuale: %.2f€%n",
-                Thread.currentThread().getName(), importo, saldo);
+        System.out.println("[" + Thread.currentThread().getName() + "] Versamento: +" + importo + "€  -->  Saldo: " + saldo + "€");
     }
 
     public synchronized void preleva(double importo) {
         if (importo > saldo) {
-            System.out.printf("[%s] Prelievo di %.2f€ RIFIUTATO (saldo insufficiente: %.2f€)%n",
-                    Thread.currentThread().getName(), importo, saldo);
+            System.out.println("[" + Thread.currentThread().getName() + "] Prelievo di " + importo + "€ rifiutato, saldo insufficiente: " + saldo + "€");
             return;
         }
         saldo -= importo;
-        System.out.printf("[%s] Prelievo: -%.2f€  -->  Saldo attuale: %.2f€%n",
-                Thread.currentThread().getName(), importo, saldo);
+        System.out.println("[" + Thread.currentThread().getName() + "] Prelievo: -" + importo + "€  -->  Saldo: " + saldo + "€");
     }
 
     public synchronized double getSaldo() {

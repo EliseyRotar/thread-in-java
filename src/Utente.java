@@ -1,9 +1,9 @@
 public class Utente implements Runnable {
 
-    private final ContoBancario conto;
-    private final String operazione;
-    private final double importo;
-    private final int numOperazioni;
+    private ContoBancario conto;
+    private String operazione;
+    private double importo;
+    private int numOperazioni;
 
     public Utente(ContoBancario conto, String operazione, double importo, int numOperazioni) {
         this.conto = conto;
@@ -24,7 +24,7 @@ public class Utente implements Runnable {
             try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+                e.printStackTrace();
             }
         }
     }
