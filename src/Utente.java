@@ -1,8 +1,7 @@
-// Ogni Utente è un thread che opera sul conto bancario condiviso
 public class Utente implements Runnable {
 
     private final ContoBancario conto;
-    private final String operazione; // "versamento" oppure "prelievo"
+    private final String operazione;
     private final double importo;
     private final int numOperazioni;
 
@@ -22,7 +21,6 @@ public class Utente implements Runnable {
                 conto.preleva(importo);
             }
 
-            // Piccola pausa per rendere l'esecuzione concorrente più visibile nell'output
             try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {

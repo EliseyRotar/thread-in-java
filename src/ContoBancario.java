@@ -1,4 +1,3 @@
-// Classe che rappresenta il conto bancario condiviso tra i thread
 public class ContoBancario {
 
     private double saldo;
@@ -7,7 +6,6 @@ public class ContoBancario {
         this.saldo = saldoIniziale;
     }
 
-    // synchronized garantisce che un solo thread alla volta possa modificare il saldo
     public synchronized void versa(double importo) {
         saldo += importo;
         System.out.printf("[%s] Versamento: +%.2f€  -->  Saldo attuale: %.2f€%n",
